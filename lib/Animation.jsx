@@ -8,7 +8,7 @@ export default function Anim() {
     return(
         <View style={{justifyContent:'center',alignItems:'center',flex:1,backgroundColor:'white'}}>
           <LottieView
-              source={require('./Asserts/GlassBall.json')}
+              source={require('./Asserts/jumpy-herat.json')}
               style={sty.animation}
               autoPlay
               />
