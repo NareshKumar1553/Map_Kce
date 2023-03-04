@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView,Image,Text, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
-import { SearchBar } from 'react-native-elements';
 const MainPage =( {navigation} ) =>{
+    //const [search,setSearch] = React.useState('');
     return (
         <SafeAreaView style={{flex: 1}}>
          
         <View style={styles.container}>
           <MapView
             style={styles.mapStyle}
+            
             mapType='satellite'
             //zoomEnabled={true}
             initialRegion={{
@@ -26,8 +27,13 @@ const MainPage =( {navigation} ) =>{
             }} 
             title="KCE" description="Karpagam College of Engineering" ></Marker>
                  </MapView>
-                 <TouchableOpacity style={{width:370,height:50,backgroundColor:'pink',borderRadius:50}} onPress={()=>{navigation.push('List')}}></TouchableOpacity>
+                 <TouchableOpacity 
+                 onPress={()=>{navigation.navigate('Tabs')}}
+                 style={{backgroundColor:'white',width:50,height:50,borderRadius:50}}>
+                  <Text>Hai</Text>
+                  </TouchableOpacity>
       </View>
+      
     </SafeAreaView>
     );
   }

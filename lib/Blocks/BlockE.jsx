@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import { View, Text,Image,ScrollView } from 'react-native';
-import Anim from '../Animation';
+import Anim from '../Pages/Animation';
 function EPage({ navigation }) {
     var img = [];
     const [loading, setLoading] = useState(true); // Set loading to true on component mount
