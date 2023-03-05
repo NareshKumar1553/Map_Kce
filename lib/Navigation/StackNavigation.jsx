@@ -10,20 +10,27 @@ import DPage from '../Blocks/BlockD';
 import EPage from '../Blocks/BlockE';
 import TestPage from '../TestPage';
 import TabNavigation from './TabNavigation';
+import Faculty from '../Pages/FacultyLis';
+import FacultyDetail from '../Pages/FacultyDetail';
+import BlockDetails from '../Pages/BlockDetails';
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
     // useEffect(() => {
     //   SplashScreen.hide();
     // }, []);
       return(
+        console.log("AppStack"),
         <NavigationContainer independent={true}>
-        <Stack.Navigator screenOptions={{
+        <Stack.Navigator 
+        initialRouteName='MainPage'
+        screenOptions={{
       headerShown: false,
       animation:'slide_from_bottom',
       animationDuration: 4000,
       
-    }}>
-      <Stack.Screen name="Tabs" component={TabNavigation} /> 
+    }}
+    >
+        {/* <Stack.Screen name="Tabs" component={TabNavigation} />   */}
         <Stack.Screen name="MainPage" component={MainPage} /> 
         <Stack.Screen name="Add" component={AddData} />
         <Stack.Screen name="List" component={ListShow} />
@@ -33,7 +40,9 @@ const AppStack = () => {
         <Stack.Screen name="DPage" component={DPage} />
         <Stack.Screen name="EPage" component={EPage} />
         <Stack.Screen name="TestPage" component={TestPage} />
-  
+        <Stack.Screen name="Faculty" component={Faculty} />
+        <Stack.Screen name="FDetails" component={FacultyDetail} />
+        <Stack.Screen name="BDetails" component={BlockDetails} />
       </Stack.Navigator>
       </NavigationContainer>
       );

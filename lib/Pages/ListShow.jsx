@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
-import { View, Text,TouchableOpacity,StyleSheet,ScrollView } from 'react-native';
+import React,{useEffect} from 'react';
+import { View, Text,TouchableOpacity,StatusBar,StyleSheet,ScrollView } from 'react-native';
 
-const ListShow = ({navigation}) =>{
+function ListShow({navigation}) {
+    let BgColor = "white";
+    useEffect(()=>{
+        StatusBar.setBarStyle( 'dark-content',false)
+        StatusBar.setBackgroundColor(BgColor)
+    })
     return (
-      <ScrollView style={{backgroundColor:'black'}}>
+      <ScrollView style={{backgroundColor:'white'}}>
         <Text style={{textAlign:'center',fontSize:24,color:'#ffa319',fontWeight:'bold',paddingTop:15,paddingBottom:20}}>Block Wise</Text>
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('APage')}}
@@ -11,7 +16,7 @@ const ListShow = ({navigation}) =>{
             <Text style={styles.text}>A Block</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('BPage')}}
+            onPress={()=>{navigation.push("BPage")}}
         >
             <Text style={styles.text}>B Block</Text>
         </TouchableOpacity>
@@ -38,7 +43,6 @@ const ListShow = ({navigation}) =>{
       </ScrollView>
     );
   }
-export default ListShow;
 
 const styles = StyleSheet.create({
     container: {
@@ -69,3 +73,4 @@ const styles = StyleSheet.create({
         marginLeft:10,
     }
 });
+export default ListShow;

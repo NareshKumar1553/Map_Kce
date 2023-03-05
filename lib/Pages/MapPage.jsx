@@ -1,8 +1,14 @@
-import React, { Component } from 'react';
-import {SafeAreaView,Image,Text, StyleSheet, TouchableOpacity, View} from 'react-native';
+import React, { useEffect } from 'react';
+import {SafeAreaView,Image,Text, StyleSheet, TouchableOpacity, View, ImageBackground} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
-const MainPage =( {navigation} ) =>{
-    //const [search,setSearch] = React.useState('');
+import {StatusBar} from 'react-native';
+const MainPage=({navigation})=> {
+
+     useEffect(()=>{
+      StatusBar.setBarStyle( 'light-content',true)
+      StatusBar.setBackgroundColor('black')
+    }) 
+    
     return (
         <SafeAreaView style={{flex: 1}}>
          
@@ -27,16 +33,42 @@ const MainPage =( {navigation} ) =>{
             }} 
             title="KCE" description="Karpagam College of Engineering" ></Marker>
                  </MapView>
+            <View 
+            style={{
+              justifyContent:'space-between',
+              backgroundColor:'white',
+              alignItems:'center',
+              flex:0.095,
+              flexDirection:'row',
+              width:'100%',
+              borderTopLeftRadius:30,
+              borderTopRightRadius:30
+              }}>
                  <TouchableOpacity 
-                 onPress={()=>{navigation.navigate('Tabs')}}
-                 style={{backgroundColor:'white',width:50,height:50,borderRadius:50}}>
-                  <Text>Hai</Text>
+                 onPress={()=>{navigation.push('List')}}
+                 style={{justifyContent:'center',marginLeft:40,marginRight:10}}>
+                  <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
+                  <Text style={{color:'black',fontSize:12}}> Home</Text>
                   </TouchableOpacity>
+                  <TouchableOpacity 
+                 onPress={()=>{navigation.push('List')}}
+                 style={{justifyContent:'center',marginLeft:10,marginRight:10}}>
+                  <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
+                  <Text style={{color:'black',fontSize:12,textAlign:'center'}}>All Block</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity 
+                 onPress={()=>{navigation.push('Faculty')}}
+                 style={{justifyContent:'center',marginLeft:10,marginRight:50}}>
+                  <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
+                  <Text style={{color:'black',fontSize:12}}>Faculty</Text>
+                  </TouchableOpacity>
+            </View>
       </View>
       
     </SafeAreaView>
     );
   }
+
 const styles = StyleSheet.create({
     container: {
       position: 'absolute',

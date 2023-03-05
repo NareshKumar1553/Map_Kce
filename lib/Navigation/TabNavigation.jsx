@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
-import { View, Text,StyleSheet,ImageBackground } from 'react-native';
+import { View, Text,StyleSheet,ImageBackground,Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import MainPage from '../Pages/MapPage';
-import AddData from '../Pages/AddData';
 import TestPage from '../TestPage';
 import ListShow from '../Pages/ListShow';
+import Faculty from '../Pages/FacultyLis';
+import APage from '../Blocks/BlockA';
+import AddData from '../Pages/AddData';
+import BPage from '../Blocks/BlockB';
+import CPage from '../Blocks/BlockC';
+import DPage from '../Blocks/BlockD';
+import EPage from '../Blocks/BlockE';
+import AppStack from './StackNavigation';
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
     return (
+        
         <NavigationContainer independent={true}>
             <Tab.Navigator
              screenOptions={{
@@ -49,15 +57,16 @@ const TabNavigation = () => {
                     )
                 }} />
            
-            <Tab.Screen name="Test" component={TestPage}
+            <Tab.Screen name="Faculty" component={Faculty}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                            <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{ width: 30, height: 30 }} imageStyle={{ tintColor: focused ? '#e32f45' : '#748c94' }} />
+                            <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{ width: 30, height: 30 }} imageStyle={{ tintColor: focused ? '#e32f45' : '#748c94' }}/>
                             <Text style={{ color: focused ? '#e32f45' : '#748c94', fontSize: 12 }}>Faculties</Text>
                         </View>
                     )
                 }} />
+                 <Tab.Screen name="AppStack" component={AppStack} />
         </Tab.Navigator>
         </NavigationContainer>
     );
