@@ -44,10 +44,10 @@ const MainPage=({navigation})=> {
               borderTopRightRadius:30
               }}>
                  <TouchableOpacity 
-                 onPress={()=>{navigation.push('List')}}
+                 onPress={()=>{navigation.push('TestPage')}}
                  style={{justifyContent:'center',marginLeft:40,marginRight:10}}>
                   <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
-                  <Text style={{color:'black',fontSize:12}}> Home</Text>
+                  <Text style={{color:'black',fontSize:12}}> Test</Text>
                   </TouchableOpacity>
                   <TouchableOpacity 
                  onPress={()=>{navigation.push('List')}}

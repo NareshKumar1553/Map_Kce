@@ -13,11 +13,13 @@ import TabNavigation from './TabNavigation';
 import Faculty from '../Pages/FacultyLis';
 import FacultyDetail from '../Pages/FacultyDetail';
 import BlockDetails from '../Pages/BlockDetails';
+import React, { useEffect } from 'react';
+import SplashScreen from 'react-native-splash-screen';
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
-    // useEffect(() => {
-    //   SplashScreen.hide();
-    // }, []);
+    useEffect(() => {
+      SplashScreen.hide();
+    }, []);
       return(
         console.log("AppStack"),
         <NavigationContainer independent={true}>

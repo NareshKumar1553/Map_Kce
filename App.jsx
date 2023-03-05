@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import AppStack from './lib/Navigation/StackNavigation';
-import TabNavigation from './lib/Navigation/TabNavigation';
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
+import SplashScreen from 'react-native-splash-screen';
+const App=()=> {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
     return (
       <AppStack/>
     );
   }
-}
+export default App;
