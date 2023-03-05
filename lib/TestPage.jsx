@@ -1,24 +1,30 @@
-import React, { Component } from 'react';
-import { View, Text,ScrollView,TouchableOpacity } from 'react-native';
-import { Image } from 'react-native-elements';
-export default class TestPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
+import React from 'react';
+import { Text, View } from 'react-native';
+
+const TestPage = ({navigation,route}) => {
+  const { location } = route.params.user;
+  //const { loc } = route.params.Longitude;
+  const lon = toArray(location);
+  const Langi ={lon}.lon[1];
+  console.log("Location "+Langi);
+  return (
+    <View style={{backgroundColor:'black'}}>
+        <Text>componentName</Text>
+    </View>
+);
+}
+
+export default TestPage;
+function toArray(obj) {
+  const result = [];
+  for (const prop in obj) {
+      const value = obj[prop];
+      if (typeof value === 'object') {
+          result.push(toArray(value)); // <- recursive call
+      }
+      else {
+          result.push(value);
+      }
   }
-  
-  render() {
-    let BgColor = '#faeecd'
-    return (
-      <View style={{backgroundColor:BgColor,flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-      <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between',width:345,height:65,backgroundColor:'#ffffff',borderRadius:20,marginBottom:10}}
-      onPress={()=>{navigation.push('')}}
-      >
-      <Text style={{marginLeft:30,textAlign:'center',color:'black',fontWeight:'bold',fontSize:20,paddingTop:12}}>Charumathi</Text>
-      <Text style={{marginRight:30,textAlign:'center',color:'black',fontWeight:'bold',fontSize:20,paddingTop:12,backgroundColor:'green',borderRadius:50,height:50,width:50}}>ASP</Text>
-      </TouchableOpacity>
-  </View>
-    );
-  }
+  return result;
 }
