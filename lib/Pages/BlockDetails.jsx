@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
-import { View, Text,StyleSheet,Image,ScrollView,TouchableOpacity,Linking} from 'react-native';
+import { View, Text,StyleSheet,Image,ScrollView,TouchableOpacity,Linking,StatusBar} from 'react-native';
 import openMap from 'react-native-open-maps';
 const BlockDetails = ({navigation,route}) => {
   useEffect(()=>{
     StatusBar.setBarStyle( 'light-content',true)
-    StatusBar.setBackgroundColor('black')
+    StatusBar.setBackgroundColor('#78756e')
   }) 
     const { location } = route.params.user;
     const {name,loc,dep,InchargeName} = route.params.user;
+    const { image } = route.params.user;
     const lon = toArray(location);
     const Longitude = lon[0];
     const Latitude = {lon}.lon[1];
     return (
+      console.log({image}),
         <View style={{backgroundColor:'white',flex:1}}>
-        <Image source={{uri: "https://www.bollywoodbiography.in/wp-content/uploads/2022/05/sayyeshaa-saigal.jpg"}} 
+        <Image source={{uri:image}} 
         style={{width:'100%',height:250}}/>
         <ScrollView>
         <Text style={{justifyContent:'center',alignItems:'center',paddingTop:10,fontWeight:'bold',textAlign:'center',fontSize:24,color:'black'}}> {name} </Text>

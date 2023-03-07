@@ -8,39 +8,53 @@ function ListShow({navigation}) {
         StatusBar.setBackgroundColor(BgColor)
     })
     return (
+        <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'white'}}>
       <ScrollView style={{backgroundColor:'white'}}>
         <Text style={{textAlign:'center',fontSize:24,color:'#ffa319',fontWeight:'bold',paddingTop:15,paddingBottom:20}}>Block Wise</Text>
+       <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('APage')}}
         >
             <Text style={styles.text}>A Block</Text>
         </TouchableOpacity>
+        </View>
+        <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push("BPage")}}
         >
             <Text style={styles.text}>B Block</Text>
         </TouchableOpacity>
+        </View>
+        <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('CPage')}}
         >
             <Text style={styles.text}>C Block</Text>
         </TouchableOpacity>
+        </View>
+        <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('DPage')}}
         >
             <Text style={styles.text}>D Block</Text>
         </TouchableOpacity>
+        </View>
+        <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('EPage')}}
         >
             <Text style={styles.text}>E Block</Text>
         </TouchableOpacity>
+        </View>
+        <View> 
         <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('Add')}}
         >
             <Text style={styles.text}>Admin</Text>
         </TouchableOpacity>
+        </View>
       </ScrollView>
+      </View>
     );
   }
 

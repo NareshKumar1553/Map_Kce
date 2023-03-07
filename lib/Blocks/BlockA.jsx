@@ -37,6 +37,7 @@ function APage({ navigation }) {
         return <Anim/>;
     }
     users.map(user => {
+        console.log({user}),
         img.push(
             <View style={{backgroundColor:"#c8b0f5"}}>
                 <TouchableOpacity 

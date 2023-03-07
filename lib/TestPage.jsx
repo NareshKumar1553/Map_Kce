@@ -1,99 +1,95 @@
-import React from "react";
-import { TouchableOpacity, StyleSheet, View, Text, Image, ImageBackground } from "react-native";
-const TestPage = ({ navigation }) => {
-    return (
-        <View style={{ flex: 1, justifyContent:'center',alignItems:'center',flexDirection: 'column', backgroundColor: '#ffffff' }}>
-            
-             {/*<Text style={{ flex: 0, fontSize: 42, textAlign: 'center', fontFamily: 'Times', color: "#63e0de", paddingLeft: 15, fontWeight: 'bold' }}>Name...</Text> */}
-            <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-                <TouchableOpacity activeOpacity={0.75} style={sty.TopRight} onPress={() => navigation.push('Product')}>
-            
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => navigation.push('Service')} style={sty.TopLeft}>
-                       
-                </TouchableOpacity>
-            </View>
-            <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
-                <TouchableOpacity style={sty.BottomLeft} onPress={()=>{navigation.push('Gov')}}>
-                     
-                    
-                </TouchableOpacity>
-                <TouchableOpacity style={sty.BottomRight} onPress={()=>{navigation.push('Edu')}}>
-                </TouchableOpacity>
+import React,{useEffect, useState} from 'react';
+import { View,Text,StatusBar,StyleSheet,Linking,TouchableOpacity } from 'react-native';
+import { Image } from 'react-native-elements';
+const bgColor = "white";
+const TestPage = ({navigation,route}) =>{
+    
+    useState(()=>{
+        if(bgColor=="black"){
+        StatusBar.setBarStyle( 'light-content',true)}
+        else{
+        StatusBar.setBarStyle( 'dark-content',true)}
+        StatusBar.setBackgroundColor(bgColor)
+      }) 
+      let designation,img ;
+    const {name,email,Department,deg,image,LinkedIn} = route.params.user;
+   if(image=="" || image==null){
+         img = "https://github.com/pavanpk811/KCE_Map/raw/main/Error.png"
+    }
+    else{
+        img = image
+    }
+    if(deg=="ASP"){
+        designation = "Associate Professor"
+    }
+    else if(deg=="HOD"){
+        designation = "Head of Department"
+    }
+    else if(deg=="PROF"){
+        designation = "Professor"
+    }
+    else if(deg=="AP"){
+        designation = "Assistant Professor"
+    }
+    else if(deg=="ASSI"){
+        designation = "Assistant"
+    }
+    else if(deg=="TUT"){
+        designation = "Tutor"
+    }
+    else if(deg=="LAB"){
+        designation = "Lab Assistant"
+    }
+    else{
+        designation = "Not Available"
+    }
+    return(
+        console.log(LinkedIn),
+        <View style={styles.container}>
+            <Image source={{uri:img}} style={styles.image}/>
+            <Text style={styles.text}>Name : {name}</Text>
+            <Text style={styles.text}>Department : {Department}</Text>
+            <Text style={styles.text}>Email : {email}</Text>
+            <Text style={styles.text}>Designation : {designation}</Text>
+            <View style={{marginLeft:10,position:'absolute',bottom:30,}}>
+            <TouchableOpacity 
+            style={{justifyContent:'center',alignContent:'center',backgroundColor:'#000b6e',marginBottom:10,width:350,height:50,borderRadius:20}} 
+            onPress={()=>{Linking.openURL(LinkedIn)}}
+            >
+                <Text style={{textAlign:'center',color:'white',fontWeight:'bold',fontFamily:'Cochin'}}>LinkedIn</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+            style={{justifyContent:'center',alignContent:'center',backgroundColor:'black',width:350,height:50,borderRadius:20}} 
+            onPress={()=>{Linking.openURL("mailto:$"+{email}+"?subject=By KCE Explorer&body=Description")}}
+            >
+                <Text style={{textAlign:'center',color:'white',fontWeight:'bold',fontFamily:'Cochin'}}>Compose Mail</Text>
+            </TouchableOpacity>
             </View>
         </View>
-    );
-
-
+    )
 }
-const sty = StyleSheet.create({
-    image: {
-        flex: 1
-    },
-    PadImage: {
-        height: 100,
-        width: 100,
-    },
-    fullview: {
-        flex: 1,
-        backgroundColor: 'white',
-    },
-    TopLeft: {
-        justifyContent: 'space-evenly',
-        margin: 5,
-        backgroundColor: '#7424ff',
-        borderBottomRightRadius: 40,
-        borderTopLeftRadius: 40,
-        height: 120,
-        width: 100,
 
-    },
-    TopRight: {
-        justifyContent: 'space-evenly',
-        margin: 5,
-        height: 120,
-        width: 100,
-        borderTopRightRadius: 40,
-        borderBottomLeftRadius: 40,
-        backgroundColor: '#54d8f0',
-    },
-    BottomRight: {
-        justifyContent: 'space-evenly',
-        margin: 5,
-        height: 120,
-        width: 100,
-        backgroundColor: '#86ff6e',
-        borderTopRightRadius: 40,
-        borderBottomLeftRadius: 40,
-
-    },
-    BottomLeft: {
-        justifyContent: 'space-evenly',
-        margin: 5,
-        borderBottomRightRadius: 40,
-        borderTopLeftRadius: 40,
-        backgroundColor: '#fab300',
-        height: 120,
-        width: 100,
-    },
-    second: {
-        flex: 1,
-        height: 500,
-        width: 400,
-        backgroundColor: 'red',
-    },
-    itemText: {
-        fontFamily: "RobotoCondensed-Bold",
-        fontSize: 42,
-        color: "black"
-    },
-    backImageTR: {
-        margin: 2,
-        height: 170,
-        width: 170,
-        borderTopRightRadius: 40,
-        borderBottomLeftRadius: 40,
-    },
-})
 export default TestPage;
+const styles = StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:bgColor,
+    },
+    text:{
+        fontSize:20,
+        fontWeight:'bold',
+        color:'black',
+        marginLeft:30,
+        marginTop:20,
+    },
+    image:{
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop:20,
+        marginLeft:130,
+        width:105,
+        height:105,
+        borderRadius:105
+    }
+
+})

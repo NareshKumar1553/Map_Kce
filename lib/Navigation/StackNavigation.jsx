@@ -15,6 +15,7 @@ import FacultyDetail from '../Pages/FacultyDetail';
 import BlockDetails from '../Pages/BlockDetails';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import AddStaffData from '../Pages/AddStaffData';
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
     useEffect(() => {
@@ -45,6 +46,7 @@ const AppStack = () => {
         <Stack.Screen name="Faculty" component={Faculty} />
         <Stack.Screen name="FDetails" component={FacultyDetail} />
         <Stack.Screen name="BDetails" component={BlockDetails} />
+        <Stack.Screen name="StaffAdd" component={AddStaffData} />
       </Stack.Navigator>
       </NavigationContainer>
       );

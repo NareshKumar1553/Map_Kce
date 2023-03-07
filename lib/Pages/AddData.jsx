@@ -9,6 +9,7 @@ const [block, setBlock] = useState("");
 const [loc, setLoc] = useState("");
 const [InchargeName, setInchargeName] = useState("");
 const [dep, setDep] = useState("");
+const [image, setImage] = useState("");
     return (
     <View style={{flex:1,backgroundColor:'black',justifyContent:'center',alignItems:'center'}}>
         <Text style={{color:"white",fontWeight:'bold',fontSize:20}}>Enter the Data to Add</Text>
@@ -17,12 +18,13 @@ const [dep, setDep] = useState("");
         <TextInput placeholder='Enter the Location 'onChangeText={(loc) => setLoc(loc)}></TextInput>
         <TextInput placeholder='Enter the Incharge Name' onChangeText={(InName) => setInchargeName(InName)}></TextInput>
         <TextInput placeholder='Enter the Lab Department' onChangeText={(dep) => setDep(dep)}></TextInput>
-        <Button title="Submit" onPress={() => DataSet(block,name,loc,InchargeName,dep)}/>
+        <TextInput placeholder='Enter the Image Link ' onChangeText={(img) => setImage(img)}></TextInput>
+        <Button title="Submit" onPress={() => DataSet(block,name,loc,InchargeName,dep,image)}/>
     </View>
 );
 
     }
-function DataSet(block,name,loc,InchargeName,dep) {
+function DataSet(block,name,loc,InchargeName,dep,image) {
     if(name!="" || block!="" || loc!="" ||dep!="" || InchargeName !=""){
     const subscriber = firestore()
             .collection(block)
@@ -30,7 +32,8 @@ function DataSet(block,name,loc,InchargeName,dep) {
                 name: name,
                 location: loc,
                 InchargeName: InchargeName,
-                Department:dep
+                Department:dep,
+                image:image,
             })
             .then(() => console.log('Data updated.'))
             .then(() => alert("Data Added Successfully...")
