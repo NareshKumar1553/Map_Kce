@@ -47,11 +47,11 @@ function ListShow({navigation}) {
         </TouchableOpacity>
         </View>
         <View> 
-        <TouchableOpacity style={styles.Bar}
+        {/* <TouchableOpacity style={styles.Bar}
             onPress={()=>{navigation.push('Add')}}
         >
             <Text style={styles.text}>Admin</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         </View>
       </ScrollView>
       </View>
