@@ -49,6 +49,7 @@ function APage({ navigation }) {
         )
     });
     return(
+        console.log("A Block Page"),
         <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#c8b0f5'}}>
         <ScrollView >
             <Text style={{fontWeight:'bold',paddingBottom:15,textAlign:'center',color:'black',marginTop:15,fontSize:32}}>A Block</Text>

@@ -87,7 +87,7 @@ function Faculty({ navigation }) {
         img.push(
             <View style={{backgroundColor:bgColor,flex:1,flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
       <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between',width:345,height:65,backgroundColor:'#ffffff',borderRadius:20,marginBottom:10}}
-      onPress={()=>{navigation.push('TestPage',{user})}}
+      onPress={()=>{navigation.push('FDetails',{user})}}
       >
       <Text style={{marginTop:5,marginLeft:30,textAlign:'center',color:'black',fontWeight:'bold',fontSize:20,paddingTop:12}}>{user.name}</Text>
       <Text style={{marginTop:10,marginRight:30,textAlign:'center',color:'black',fontWeight:'bold',fontSize:20,paddingTop:12,backgroundColor:bannerColor,borderRadius:50,height:50,width:50}}>{user.deg}</Text>

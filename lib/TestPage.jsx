@@ -1,95 +1,45 @@
-import React,{useEffect, useState} from 'react';
-import { View,Text,StatusBar,StyleSheet,Linking,TouchableOpacity } from 'react-native';
-import { Image } from 'react-native-elements';
-const bgColor = "white";
-const TestPage = ({navigation,route}) =>{
-    
-    useState(()=>{
-        if(bgColor=="black"){
-        StatusBar.setBarStyle( 'light-content',true)}
-        else{
-        StatusBar.setBarStyle( 'dark-content',true)}
-        StatusBar.setBackgroundColor(bgColor)
-      }) 
-      let designation,img ;
-    const {name,email,Department,deg,image,LinkedIn} = route.params.user;
-   if(image=="" || image==null){
-         img = "https://github.com/pavanpk811/KCE_Map/raw/main/Error.png"
-    }
-    else{
-        img = image
-    }
-    if(deg=="ASP"){
-        designation = "Associate Professor"
-    }
-    else if(deg=="HOD"){
-        designation = "Head of Department"
-    }
-    else if(deg=="PROF"){
-        designation = "Professor"
-    }
-    else if(deg=="AP"){
-        designation = "Assistant Professor"
-    }
-    else if(deg=="ASSI"){
-        designation = "Assistant"
-    }
-    else if(deg=="TUT"){
-        designation = "Tutor"
-    }
-    else if(deg=="LAB"){
-        designation = "Lab Assistant"
-    }
-    else{
-        designation = "Not Available"
-    }
-    return(
-        console.log(LinkedIn),
-        <View style={styles.container}>
-            <Image source={{uri:img}} style={styles.image}/>
-            <Text style={styles.text}>Name : {name}</Text>
-            <Text style={styles.text}>Department : {Department}</Text>
-            <Text style={styles.text}>Email : {email}</Text>
-            <Text style={styles.text}>Designation : {designation}</Text>
-            <View style={{marginLeft:10,position:'absolute',bottom:30,}}>
-            <TouchableOpacity 
-            style={{justifyContent:'center',alignContent:'center',backgroundColor:'#000b6e',marginBottom:10,width:350,height:50,borderRadius:20}} 
-            onPress={()=>{Linking.openURL(LinkedIn)}}
+import React from 'react';
+import { View,TouchableOpacity,Text,StyleSheet } from 'react-native';
+
+const TestPage = ({navigation}) =>{
+    return (
+        console.log("Test Page"),
+        <View style={{backgroundColor:'black',flex:1,justifyContent:'center',alignItems:'center'}}>
+            <Text style={{color:'red',fontSize:30,fontWeight:'bold',position:'absolute',top:20}}>Admin Page</Text>
+            <TouchableOpacity style={styles.Bar}
+            onPress={()=>{navigation.push('StaffAdd')}}
             >
-                <Text style={{textAlign:'center',color:'white',fontWeight:'bold',fontFamily:'Cochin'}}>LinkedIn</Text>
+                <Text style={styles.BarText}>Faculty Details</Text>
             </TouchableOpacity>
-            <TouchableOpacity 
-            style={{justifyContent:'center',alignContent:'center',backgroundColor:'black',width:350,height:50,borderRadius:20}} 
-            onPress={()=>{Linking.openURL("mailto:$"+{email}+"?subject=By KCE Explorer&body=Description")}}
+            <TouchableOpacity style={styles.Bar}
+            onPress={()=>{navigation.push('Add')}}
             >
-                <Text style={{textAlign:'center',color:'white',fontWeight:'bold',fontFamily:'Cochin'}}>Compose Mail</Text>
+                <Text style={styles.BarText}>Block Details</Text>
             </TouchableOpacity>
-            </View>
         </View>
-    )
+    );
 }
 
+
 export default TestPage;
+
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:bgColor,
+    Bar:{
+        backgroundColor:'white',
+        height:50,
+        width:'90%',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        paddingHorizontal:10,
+        elevation:5,
+        marginBottom:10,
+        borderRadius:10,
     },
-    text:{
+    BarText:{
+        color:'black',
         fontSize:20,
         fontWeight:'bold',
-        color:'black',
-        marginLeft:30,
-        marginTop:20,
+        textAlign:'center',
     },
-    image:{
-        alignItems:'center',
-        justifyContent:'center',
-        marginTop:20,
-        marginLeft:130,
-        width:105,
-        height:105,
-        borderRadius:105
-    }
-
-})
+});

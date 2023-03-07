@@ -22,7 +22,7 @@ const AppStack = () => {
       SplashScreen.hide();
     }, []);
       return(
-        console.log("AppStack"),
+        console.log("Stack Navigation"),
         <NavigationContainer independent={true}>
         <Stack.Navigator 
         initialRouteName='MainPage'
