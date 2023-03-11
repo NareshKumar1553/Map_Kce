@@ -5,8 +5,9 @@ import SelectDropdown from "react-native-select-dropdown";
 import database from '@react-native-firebase/database';
 import firestore from '@react-native-firebase/firestore';
 import { TextInput } from 'react-native-gesture-handler';
+import Success from "../AnimationLib/Success";
 
-const AddStaffData = () => {
+const AddStaffData = ({navigation}) => {
     const [deg,setDeg] = useState("");
     const degs = ["ASP","HOD","PROF","AP","ASSI","TUT","LAB","LIB","SEC","REG","COUN","DEAN","PRINC","OTHERS"];
         const [name, setName] = useState("");
@@ -15,13 +16,13 @@ const AddStaffData = () => {
         const [LI, setLI] = useState("");
         const [image, setImage] = useState("");
     return (
-        <View style={{flex:1,backgroundColor:'black',justifyContent:'center',alignItems:'center'}}>
-        <Text style={{color:"white",fontWeight:'bold',fontSize:20}}>Enter the Data to Add</Text>
-        <TextInput placeholder='Enter the Name' onChangeText={(name) => setName(name)}></TextInput>
-        <TextInput placeholder='Enter the Email ' onChangeText={(InName) => setEmail(InName)}></TextInput>
-        <TextInput placeholder='Enter the Department' onChangeText={(dep) => setDep(dep)}></TextInput>
-        <TextInput placeholder='Enter the LinkedIn Id' onChangeText={(ll) => setLI(ll)}></TextInput>
-        <TextInput placeholder='Enter the Image Link ' onChangeText={(img) => setImage(img)}></TextInput>
+        <View style={{flex:1,backgroundColor:'white',justifyContent:'center',alignItems:'center'}}>
+        <Text style={{color:"black",fontWeight:'bold',fontSize:20}}>Enter the Data to Add</Text>
+        <TextInput placeholder='Enter the Name' style={{color:'black'}} onChangeText={(name) => setName(name)}>Enter the Name ... </TextInput>
+        <TextInput placeholder='Enter the Email ' style={{color:'black'}} onChangeText={(InName) => setEmail(InName)}>Enter the Email </TextInput>
+        <TextInput placeholder='Enter the Department' style={{color:'black'}} onChangeText={(dep) => setDep(dep)}>Enter the Department</TextInput>
+        <TextInput placeholder='Enter the LinkedIn Id' style={{color:'black'}} onChangeText={(ll) => setLI(ll)}> Enter the LinkedIn Id</TextInput>
+        <TextInput placeholder='Enter the Image Link ' style={{color:'black'}} onChangeText={(img) => setImage(img)}>Enter the Image Link</TextInput>
             <SelectDropdown
             data={degs}
             onSelect={(selectedItem, index) => {
@@ -72,6 +73,7 @@ function DataSet(name,dep,email,deg,image,LI) {
                 image : img,
                 LinkedIn : Linked
             })
+            .then(() => <Success/>)
             .then(() => console.log('Data updated.'))
             .then(() => alert("Data Added Successfully...")
             );

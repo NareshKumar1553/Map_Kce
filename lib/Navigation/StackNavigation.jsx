@@ -16,6 +16,8 @@ import BlockDetails from '../Pages/BlockDetails';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import AddStaffData from '../Pages/AddStaffData';
+import Success from '../AnimationLib/Success';
+
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
     useEffect(() => {
@@ -47,6 +49,7 @@ const AppStack = () => {
         <Stack.Screen name="FDetails" component={FacultyDetail} />
         <Stack.Screen name="BDetails" component={BlockDetails} />
         <Stack.Screen name="StaffAdd" component={AddStaffData} />
+        <Stack.Screen name="Success" component={Success} />
       </Stack.Navigator>
       </NavigationContainer>
       );
