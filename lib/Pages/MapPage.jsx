@@ -3,11 +3,11 @@ import {SafeAreaView,Image,Text, StyleSheet, TouchableOpacity, View, ImageBackgr
 import MapView, {Marker} from 'react-native-maps';
 import {StatusBar,Linking} from 'react-native';
 const MainPage=({navigation})=> {
-     useEffect(()=>{
-      StatusBar.setBarStyle( 'light-content',true)
-      StatusBar.setBackgroundColor('black')
-    }) 
-    
+    //  useEffect(()=>{
+    //   StatusBar.setBarStyle( 'light-content',true)
+    //   StatusBar.setBackgroundColor('black')
+    // }) 
+    <StatusBar backgroundColor="transparent" translucent = {true}/>
     return (
         <SafeAreaView style={{flex: 1}}>
          
