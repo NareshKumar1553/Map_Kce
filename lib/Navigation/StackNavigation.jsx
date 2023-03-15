@@ -17,6 +17,8 @@ import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import AddStaffData from '../Pages/AddStaffData';
 import Success from '../AnimationLib/Success';
+import AdminPage from '../Pages/AdminPage';
+import DepFaculty from '../Pages/FacultPage';
 
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
@@ -44,12 +46,14 @@ const AppStack = () => {
         <Stack.Screen name="CPage" component={CPage} />
         <Stack.Screen name="DPage" component={DPage} />
         <Stack.Screen name="EPage" component={EPage} />
-        <Stack.Screen name="TestPage" component={TestPage} />
+        <Stack.Screen name="Admin" component={AdminPage} />
         <Stack.Screen name="Faculty" component={Faculty} />
         <Stack.Screen name="FDetails" component={FacultyDetail} />
         <Stack.Screen name="BDetails" component={BlockDetails} />
         <Stack.Screen name="StaffAdd" component={AddStaffData} />
         <Stack.Screen name="Success" component={Success} />
+        <Stack.Screen name="DepFac" component={DepFaculty} />
+        <Stack.Screen name="TestPage" component={TestPage} />
       </Stack.Navigator>
       </NavigationContainer>
       );

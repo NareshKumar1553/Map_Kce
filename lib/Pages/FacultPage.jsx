@@ -2,20 +2,24 @@ import {React,useEffect} from 'react';
 import { Text, View,StatusBar,TouchableOpacity,StyleSheet,ScrollView } from 'react-native';
 
 
-const TestPage =()=>{
+const DepFaculty =({navigation})=>{
     const bgColor = 'white'
      useEffect(()=>{
     StatusBar.setBarStyle( 'dark-content',false)
     StatusBar.setBackgroundColor(bgColor)
   }) 
     return(
-        console.log("Test Page"),
+        console.log("Department Faculty Page"),
         <View style={{flex:1,backgroundColor:bgColor,alignItems:'center'}}>
             <Text style={{textAlign:'center',color:'black',fontSize:26,fontWeight:'bold'}}>Departments</Text>
-            <TouchableOpacity style={styles.Bar}>
+            <TouchableOpacity style={styles.Bar}
+            onPress={()=>{navigation.push('Faculty',{name:'Faculties',pos:'Department of CSE'})}}
+            >
                 <Text style={styles.BarText}>Computer Science and Engineering</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.Bar}>
+            <TouchableOpacity style={styles.Bar}
+            onPress={()=>{navigation.push('Faculty',{name:'ECEFaculties',pos:'Department of ECE'})}}
+            >
                 <Text style={styles.BarText}>Electronics and Communication Engineering</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.Bar}>
@@ -40,7 +44,7 @@ const TestPage =()=>{
     );
 }
 
-export default TestPage;
+export default DepFaculty;
 
 const styles = StyleSheet.create({
     Bar:{

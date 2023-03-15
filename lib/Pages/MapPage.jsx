@@ -44,19 +44,20 @@ const MainPage=({navigation})=> {
               borderTopRightRadius:30
               }}>
                  <TouchableOpacity 
-                 onPress={()=>{navigation.push('TestPage')}}
+                 onPress={()=>{navigation.push('List')}}
                  style={{justifyContent:'center',marginLeft:40,marginRight:10}}>
                   <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
                   <Text style={{color:'black',fontSize:12}}>Block's</Text>
                   </TouchableOpacity>
                   <TouchableOpacity 
-                 onPress={()=>{navigation.push('Faculty')}}
+                 onPress={()=>{navigation.push('DepFac')}}
                  style={{justifyContent:'center',marginLeft:10,marginRight:10}}>
                   <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
                   <Text style={{color:'black',fontSize:12,textAlign:'center'}}>Faculty</Text>
                   </TouchableOpacity>
                   <TouchableOpacity 
-                 onPress={()=>{Linking.openURL("https://nareshkumar.tech/")}}
+                  onPress={()=>{navigation.push('TestPage')}}
+                //  onPress={()=>{Linking.openURL("https://nareshkumar.tech/")}}
                  style={{justifyContent:'center',marginLeft:10,marginRight:50}}>
                   <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
                   <Text style={{color:'black',fontSize:12}}>About</Text>
