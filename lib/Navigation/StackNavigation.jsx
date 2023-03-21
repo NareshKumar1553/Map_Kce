@@ -1,24 +1,20 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainPage from '../Pages/MapPage';
 import { NavigationContainer } from '@react-navigation/native';
-import ListShow from '../Pages/ListShow';
-import APage from '../Blocks/BlockA';
+import ListShow from '../Blocks/BlockList';
 import AddData from '../Pages/AddData';
-import BPage from '../Blocks/BlockB';
-import CPage from '../Blocks/BlockC';
-import DPage from '../Blocks/BlockD';
-import EPage from '../Blocks/BlockE';
 import TestPage from '../TestPage';
-import TabNavigation from './TabNavigation';
-import Faculty from '../Pages/FacultyLis';
-import FacultyDetail from '../Pages/FacultyDetail';
-import BlockDetails from '../Pages/BlockDetails';
+import FacultyDetail from '../Faculty/FacultyDetail';
+import BlockDetails from '../Blocks/BlockDetails';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import AddStaffData from '../Pages/AddStaffData';
 import Success from '../AnimationLib/Success';
 import AdminPage from '../Pages/AdminPage';
-import DepFaculty from '../Pages/FacultPage';
+import BlockLabList from '../Blocks/BlockLabList';
+
+import DepartmentWiseFaculty from '../Faculty/FacultPage';
+import FacultyList from '../Faculty/FacultyLis';
 
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
@@ -41,18 +37,14 @@ const AppStack = () => {
         <Stack.Screen name="MainPage" component={MainPage} /> 
         <Stack.Screen name="Add" component={AddData} />
         <Stack.Screen name="List" component={ListShow} />
-        <Stack.Screen name="APage" component={APage} />
-        <Stack.Screen name="BPage" component={BPage} />
-        <Stack.Screen name="CPage" component={CPage} />
-        <Stack.Screen name="DPage" component={DPage} />
-        <Stack.Screen name="EPage" component={EPage} />
         <Stack.Screen name="Admin" component={AdminPage} />
-        <Stack.Screen name="Faculty" component={Faculty} />
+        <Stack.Screen name="FacultyList" component={FacultyList} />
         <Stack.Screen name="FDetails" component={FacultyDetail} />
         <Stack.Screen name="BDetails" component={BlockDetails} />
         <Stack.Screen name="StaffAdd" component={AddStaffData} />
         <Stack.Screen name="Success" component={Success} />
-        <Stack.Screen name="DepFac" component={DepFaculty} />
+        <Stack.Screen name="DepFac" component={DepartmentWiseFaculty} />
+        <Stack.Screen name="BlockLab" component={BlockLabList} />
         <Stack.Screen name="TestPage" component={TestPage} />
       </Stack.Navigator>
       </NavigationContainer>

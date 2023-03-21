@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 import { View, Text,Image,ScrollView,StatusBar,StyleSheet } from 'react-native';
 import Anim from '../Pages/Animation';
-function Faculty({ navigation,route }) {
+function FacultyList({ navigation,route }) {
     //let bgColor = '#faeecd'
     let bannerColor = 'white'
     const bgColor = 'white'
@@ -47,7 +47,7 @@ function Faculty({ navigation,route }) {
             bannerColor = 'red'
         }
         else if(user.deg=="PROF"){
-            bannerColor = 'blue'
+            bannerColor = '#e6c670'
         }
         else if(user.deg=="AP"){
             bannerColor = 'yellow'
@@ -80,7 +80,7 @@ function Faculty({ navigation,route }) {
             bannerColor = 'magenta'
         }
         else{
-            bannerColor = 'blue'
+            bannerColor = '#9666de'
         }
 
         img.push(
@@ -105,7 +105,7 @@ function Faculty({ navigation,route }) {
     );
 }
 
-export default Faculty;
+export default FacultyList;
 
 const styles = StyleSheet.create({
     Bar:{

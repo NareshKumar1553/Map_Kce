@@ -2,7 +2,7 @@ import {React,useEffect} from 'react';
 import { Text, View,StatusBar,TouchableOpacity,StyleSheet,ScrollView } from 'react-native';
 
 
-const DepFaculty =({navigation})=>{
+const DepartmentWiseFaculty =({navigation})=>{
     const bgColor = 'white'
      useEffect(()=>{
     StatusBar.setBarStyle( 'dark-content',false)
@@ -13,12 +13,12 @@ const DepFaculty =({navigation})=>{
         <View style={{flex:1,backgroundColor:bgColor,alignItems:'center'}}>
             <Text style={{textAlign:'center',color:'black',fontSize:26,fontWeight:'bold'}}>Departments</Text>
             <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('Faculty',{name:'Faculties',pos:'Department of CSE'})}}
+            onPress={()=>{navigation.push('FacultyList',{name:'Faculties',pos:'Department of CSE'})}}
             >
                 <Text style={styles.BarText}>Computer Science and Engineering</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('Faculty',{name:'ECEFaculties',pos:'Department of ECE'})}}
+            onPress={()=>{navigation.push('FacultyList',{name:'ECEFaculties',pos:'Department of ECE'})}}
             >
                 <Text style={styles.BarText}>Electronics and Communication Engineering</Text>
             </TouchableOpacity>
@@ -44,7 +44,7 @@ const DepFaculty =({navigation})=>{
     );
 }
 
-export default DepFaculty;
+export default DepartmentWiseFaculty;
 
 const styles = StyleSheet.create({
     Bar:{

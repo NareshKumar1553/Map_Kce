@@ -1,7 +1,7 @@
 import React from 'react';
 import MainPage from '../Pages/MapPage';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import ListShow from '../Pages/ListShow';
+import ListShow from '../Blocks/BlockList';
 import { NavigationContainer } from '@react-navigation/native';
 import { View,Text } from 'react-native';
 const Drawer = createDrawerNavigator();
