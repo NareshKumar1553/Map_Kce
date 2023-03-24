@@ -7,15 +7,27 @@ const BlockDetails = ({navigation,route}) => {
     StatusBar.setBackgroundColor('#78756e')
   }) 
     const { location } = route.params.user;
-    const {name,loc,dep,InchargeName} = route.params.user;
-    const { image } = route.params.user;
+    const {name,loc,dep,InchargeName,image} = route.params.user;
     const lon = toArray(location);
     const Longitude = lon[0];
     const Latitude = {lon}.lon[1];
+    let InChargeNameUpdate,imageUpdate;
+    if(InchargeName == null || InchargeName == ""){
+      InChargeNameUpdate = "Not Available"
+    }
+    else{
+      InChargeNameUpdate = InchargeName
+    }
+    if(image == null || image == ""){
+      imageUpdate = "https://github.com/pavanpk811/KCE_Map/raw/main/others.png"
+    }
+    else{
+      imageUpdate = image
+    }
     return (
       console.log({image}),
         <View style={{backgroundColor:'white',flex:1}}>
-        <Image source={{uri:image}} 
+        <Image source={{uri:imageUpdate}} 
         style={{width:'100%',height:250}}/>
         <ScrollView>
         <Text style={{justifyContent:'center',alignItems:'center',paddingTop:10,fontWeight:'bold',textAlign:'center',fontSize:24,color:'black'}}> {name} </Text>
@@ -26,9 +38,9 @@ const BlockDetails = ({navigation,route}) => {
         <Text style={styles.title}>Department : </Text>
         <Text style={styles.container}>{dep}</Text>
         <Text style={styles.title}>In Charge Name : </Text>
-        <Text style={styles.container}>{InchargeName}</Text>
+        <Text style={styles.container}>{InChargeNameUpdate}</Text>
         <Text style={styles.title}>Location : </Text>
-        <Text style={styles.container}>{Longitude}{Latitude}</Text>
+        <Text style={styles.container}>Longitude :{Longitude} Latitude:{Latitude}</Text>
         <View style={{}}>
         <TouchableOpacity style={{backgroundColor:'black',padding:10,margin:10,borderRadius:10}} onPress={() => Linking.openURL('geo://app?saddr'+{Latitude}+{Longitude}+'&daddr=10.8801+77.0224')}>
             <Text style={{color:'white',textAlign:'center',fontSize:18}}>Navigate Me </Text>
