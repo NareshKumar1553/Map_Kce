@@ -14,7 +14,6 @@ function BlockLabList({ navigation,route }) {
     const {name,Labname} = route.params;
     const [loading, setLoading] = useState(true); // Set loading to true on component mount
     const [users, setUsers] = useState([]); // Initial empty array of users
-    console.log("NeededImage ",NeededImage);
     useEffect(() => {
         const subscriber = firestore()
             .collection(name)

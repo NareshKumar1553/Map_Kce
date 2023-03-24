@@ -15,6 +15,9 @@ import BlockLabList from '../Blocks/BlockLabList';
 
 import DepartmentWiseFaculty from '../Faculty/FacultPage';
 import FacultyList from '../Faculty/FacultyLis';
+import TestPage2 from '../TestPage2';
+import MainTest from '../Testing/MainTesting';
+import SearchPage from '../Testing/SearchPage';
 
 const Stack = createNativeStackNavigator();
 const AppStack = () => {
@@ -46,6 +49,9 @@ const AppStack = () => {
         <Stack.Screen name="DepFac" component={DepartmentWiseFaculty} />
         <Stack.Screen name="BlockLab" component={BlockLabList} />
         <Stack.Screen name="TestPage" component={TestPage} />
+        <Stack.Screen name="TestPage2" component={TestPage2} />
+        <Stack.Screen name="MainTest" component={MainTest} />
+        <Stack.Screen name="Search" component={SearchPage} />
       </Stack.Navigator>
       </NavigationContainer>
       );

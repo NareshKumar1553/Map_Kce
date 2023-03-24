@@ -4,12 +4,10 @@ import MapView, {Marker} from 'react-native-maps';
 import {StatusBar,Linking} from 'react-native';
 const MainPage=({navigation})=> {
     //  useEffect(()=>{
-    //   StatusBar.setBarStyle( 'light-content',true)
-    //   StatusBar.setBackgroundColor('black')
+    //   StatusBar.setHidden(true);
     // }) 
-    <StatusBar backgroundColor="transparent" translucent = {true}/>
     return (
-        <SafeAreaView style={{flex: 1}}>
+        <View style={{flex: 1}}>
          
         <View style={styles.container}>
           <MapView
@@ -56,7 +54,7 @@ const MainPage=({navigation})=> {
                   <Text style={{color:'black',fontSize:12,textAlign:'center'}}>Faculty</Text>
                   </TouchableOpacity>
                   <TouchableOpacity 
-                  onPress={()=>{navigation.push('TestPage')}}
+                  onPress={()=>{navigation.push('Search')}}
                 //  onPress={()=>{Linking.openURL("https://nareshkumar.tech/")}}
                  style={{justifyContent:'center',marginLeft:10,marginRight:50}}>
                   <ImageBackground source={{uri:'https://static.vecteezy.com/system/resources/previews/010/157/862/original/house-and-home-icon-symbol-sign-free-png.png'}} style={{width:30,height:30,borderRadius:30}}/>
@@ -65,7 +63,7 @@ const MainPage=({navigation})=> {
             </View>
       </View>
       
-    </SafeAreaView>
+    </View>
     );
   }
 

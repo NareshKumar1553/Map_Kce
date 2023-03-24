@@ -13,35 +13,35 @@ function ListShow({navigation}) {
         <Text style={{textAlign:'center',fontSize:24,color:'#ffa319',fontWeight:'bold',paddingTop:15,paddingBottom:20}}>Block Wise</Text>
        <View> 
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('BlockLab',{name:'Ablock',Labname:'A block Lab'})}}
+            onPress={()=>{navigation.push('BlockLab',{name:'Ablock',Labname:'A Block'})}}
         >
             <Text style={styles.text}>A Block</Text>
         </TouchableOpacity>
         </View>
         <View> 
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push("BlockLab",{name:'Bblock',Labname:'B block Lab'})}}
+            onPress={()=>{navigation.push("BlockLab",{name:'Bblock',Labname:'B Block '})}}
         >
             <Text style={styles.text}>B Block</Text>
         </TouchableOpacity>
         </View>
         <View> 
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('BlockLab',{name:'Cblock',Labname:'C block Lab'})}}
+            onPress={()=>{navigation.push('BlockLab',{name:'Cblock',Labname:'C Block '})}}
         >
             <Text style={styles.text}>C Block</Text>
         </TouchableOpacity>
         </View>
         <View> 
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('BlockLab',{name:'Dblock',Labname:'D block Lab'})}}
+            onPress={()=>{navigation.push('BlockLab',{name:'Dblock',Labname:'D Block '})}}
         >
             <Text style={styles.text}>D Block</Text>
         </TouchableOpacity>
         </View>
         <View> 
         <TouchableOpacity style={styles.Bar}
-            onPress={()=>{navigation.push('BlockLab',{name:'Eblock',Labname:'E block Lab'})}}
+            onPress={()=>{navigation.push('BlockLab',{name:'Eblock',Labname:'E Block '})}}
         >
             <Text style={styles.text}>E Block</Text>
         </TouchableOpacity>
